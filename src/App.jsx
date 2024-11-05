@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-
-texto = input.target.value;
+import AddTaskForm from "./components/AddTaskForm";
+import Task from "./components/Task";
 
 const App = () => {
   const [tasks, setTasks] = useState([
@@ -10,28 +10,12 @@ const App = () => {
     { id: 3, text: "Hacer ejercicio", completed: false },
   ]);
 
-  const addTask = (texto) => {
-    const newTask = {
-      id: tasks.length+1,
-      text: texto,
-      completed: false,
-    };
-    setTasks([...tasks, newTask]);
-    console.log(newTask)
-    console.log(tasks)
-  };
-
-  useEffect(()=>{
-    addTask(texto)
-  },[])
-
   return(
 
     <div>
       <h1>Lista de tareas</h1>
-      <input type="text" name="addNewTask" placeholder="Agregar nueva tarea"/>
-      <button onClick={addTask}>Agregar</button>
-
+      <AddTaskForm tasks={tasks} setTasks={setTasks} />
+      <Task tasks={tasks}/>
     </div>
   )
 
