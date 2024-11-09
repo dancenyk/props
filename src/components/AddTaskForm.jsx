@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 
 const AddTaskForm = ({tasks, setTasks}) => {
 
@@ -15,10 +15,6 @@ const AddTaskForm = ({tasks, setTasks}) => {
     console.log(tasks)
     setTaskText(""); // aquí voy a limpiar el campo después de agregar la tarea 
     };
-
-  useEffect(() => {
-    console.log(tasks); // lo tuve que poner para ver por consola correctamente el valor de mi array actualizado, ya que como setTasks es asíncrona no me devolvía al moment el valor. 
-  }, [tasks]);
 
   return (
     <div>

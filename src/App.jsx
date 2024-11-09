@@ -10,12 +10,22 @@ const App = () => {
     { id: 3, text: "Hacer ejercicio", completed: false },
   ]);
 
+  const deleteTask = (id) =>{
+    setTasks(tasks.filter(task => task.id !== id))
+
+  }
+
   return(
 
     <div>
-      <h1>Lista de tareas</h1>
-      <AddTaskForm tasks={tasks} setTasks={setTasks} />
-      <Task tasks={tasks}/>
+      <ul>
+        {tasks.map(task => <Task 
+        key={task.id} 
+        task={task.text}
+        onDelete={deleteTask} 
+        />
+        )}
+      </ul>
     </div>
   )
 
